@@ -17,6 +17,14 @@ import HeadlineImage from '@/components/blocks/headline_image.vue';
 import TextBlockWithImage from '@/components/blocks/text_block_with_image.vue';
 
 
+// -------------- SECTIONS
+import HeadlineSection from '@/components/sections/headline_section.vue';
+
+
+// -------------- TEMPLATES
+import VusqaNewsPage from '@/components/templates/vusqa-news/vusqa_news_page.vue';
+
+
 
 storiesOf('Components/Atoms', module)
   .addDecorator(withKnobs)
@@ -148,3 +156,22 @@ storiesOf('Components/Blocks', module)
   }), {
     notes: {markdown: test_markdown}
   })
+
+storiesOf('Components/Sections', module)
+  .addDecorator(withKnobs)
+  
+
+storiesOf('Components/Templates', module)
+  .addDecorator(withKnobs)
+  .add('Vusqa News Page', () => ({
+    components: {
+      VusqaNewsPage
+    },
+    template: 
+    `
+    <vusqa-news-page></vusqa-news-page>
+    `
+  }), {
+
+  })
+
