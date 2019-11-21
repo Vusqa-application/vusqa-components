@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <h1 class="classhey">hey!</h1>
   </div>
 </template>
 
 <style lang="scss">
-@import '@/assets/scss/design-tokens/typography/typhography-0+';
+
+.classhey {
+  color: $VusqaBrandPrimary;
+}
 
 </style>

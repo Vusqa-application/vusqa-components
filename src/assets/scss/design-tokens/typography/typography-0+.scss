@@ -1,7 +1,7 @@
 // design tokens 는 전부 전역 클래스로 적용됩니다.
 
 .font--f1 {
-  font-family: SourceSerifPro;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -10,7 +10,7 @@
 } 
 
 .font--f2 {
-  font-family: SourceSerifPro;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 29px;
@@ -19,7 +19,7 @@
 }
 
 .font--f3 {
-  font-family: SourceSerifPro;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
@@ -28,7 +28,7 @@
 }
 
 .font--f4 {
-  font-family: SourceSerifPro;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 22.5px;
@@ -37,7 +37,7 @@
 }
 
 .font--f5 {
-  font-family: SourceSerifPro;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -48,7 +48,7 @@
 // -------------------- LATO
 
 .font--base {
-  font-family: Lato;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -57,7 +57,7 @@
 }
 
 .font--base-semibold {
-  font-family: Lato;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -66,7 +66,7 @@
 }
 
 .font--small {
-  font-family: Lato;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14.4px;
@@ -75,7 +75,7 @@
 }
 
 .font--small-caps {
-  font-family: Lato;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14.4px;
@@ -86,7 +86,7 @@
 }
 
 .font--link {
-  font-family: Lato;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -106,7 +106,7 @@
 }
 
 .font---base--semi-m {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -115,7 +115,7 @@
 }
 
 .font--small-m {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14.4px;
@@ -124,7 +124,7 @@
 }
 
 .font---small--caps-m {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14.4px;
