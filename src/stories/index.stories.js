@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, object, array } from '@storybook/addon-knobs';
 
 // -------------- MARKDOWNS
 import test_markdown from '@/assets/notes/test.md'
@@ -10,15 +10,27 @@ import test_markdown from '@/assets/notes/test.md'
 // -------------- ATOMS
 import PlayButton from '@/components/atoms/play_button.vue';
 import IndicatorBox from '@/components/atoms/indicator_box.vue';
+import SliderButtons from '@/components/atoms/slider_buttons.vue';
+import SimpleDot from '@/components/atoms/simple_dot.vue';
+import Divider from '@/components/atoms/divider.vue';
+
+
 
 
 // -------------- BLOCKS
 import HeadlineImage from '@/components/blocks/headline_image.vue';
 import TextBlockWithImage from '@/components/blocks/text_block_with_image.vue';
+import SearchBar from '@/components/blocks/search_bar.vue';
+import EventItem from '@/components/blocks/event_item.vue';
+import SectionNavigation from '@/components/blocks/section_navigation.vue';
+import RankList from '@/components/blocks/rank_list.vue';
+
+
 
 
 // -------------- SECTIONS
-import HeadlineSection from '@/components/sections/content/headline_news_section.vue';
+import HeadlineNewsSection from '@/components/sections/content/headline_news_section.vue';
+import HeaderSection from '@/components/sections/layout/header_section.vue';
 
 
 // -------------- TEMPLATES
@@ -42,6 +54,20 @@ storiesOf('Components/Atoms', module)
   }), {
 
   })
+  .add('Slider Buttons', () => ({
+    components: { SliderButtons },
+    template: 
+    `<slider-buttons></slider-buttons>`
+  }), {
+
+  })
+  .add('Simple Dot', () => ({
+    components: { SimpleDot },
+    template: 
+    `<simple-dot></simple-dot>`
+  }), {
+
+  })
 
 
 storiesOf('Components/Blocks', module)
@@ -49,17 +75,17 @@ storiesOf('Components/Blocks', module)
   .add('Headline Image', () => ({
     components: { HeadlineImage, PlayButton },
     props: {
-      block_width: {
+      width: {
         type: String,
-        default: text('block_width', '520px')
+        default: text('width', '520px')
       },
-      block_height: {
+      height: {
         type: String,
-        default: text('block_height', '140px')
+        default: text('height', '140px')
       },
-      block_border_radius: {
+      border_radius: {
         type: String,
-        default: text('border_border_radius', '4px')
+        default: text('border_radius', '4px')
       },
       image_src: {
         type: String,
@@ -76,9 +102,9 @@ storiesOf('Components/Blocks', module)
     },
     template: 
     `<headline-image
-      :block_width="block_width"
-      :block_height="block_height"
-      :block_border_radius="block_border_radius"
+      :width="width"
+      :height="height"
+      :border_radius="border_radius"
       :image_src="image_src"
       :text="text"
       :text_align="text_align"
@@ -94,9 +120,9 @@ storiesOf('Components/Blocks', module)
   .add('TextBlock With Image', () => ({
     components: { TextBlockWithImage, IndicatorBox },
     props: {
-      block_width: {
+      width: {
         type: String,
-        default: text('block_width', '160px')
+        default: text('width', '160px')
       },
       image_width: {
         type: String,
@@ -121,13 +147,17 @@ storiesOf('Components/Blocks', module)
       text_align: {
         type: String,
         default: text('text_align','default')
+      },
+      is_primary: {
+        type: Boolean,
+        default: boolean('is_primary', true)
       }
     },
     template: 
     `
     <div>
     <text-block-with-image 
-      :block_width="block_width"
+      :width="width"
       :image_width="image_width"
       :image_height="image_height"
       :image_border_radius="image_border_radius"
@@ -137,7 +167,7 @@ storiesOf('Components/Blocks', module)
     >
     </text-block-with-image>
     <text-block-with-image 
-      :block_width="block_width"
+      :width="width"
       :image_width="image_width"
       :image_height="image_height"
       :image_border_radius="image_border_radius"
@@ -145,8 +175,17 @@ storiesOf('Components/Blocks', module)
       :text="text"
       :text_align="text_align"
     >
-      <indicator-box slot="top-left-indicator">1</indicator-box>
-      <indicator-box slot="bottom-right-indicator" :width="'29px'">20:13</indicator-box>
+      <indicator-box slot="top-left-indicator" 
+        :is_primary="is_primary"
+      >
+        1
+      </indicator-box>
+      <indicator-box slot="bottom-right-indicator" 
+        :width="'29px'" 
+        :is_primary="is_primary"
+      >
+        20:13
+      </indicator-box>
     </text-block-with-image>
     </div>
     `,
@@ -156,9 +195,131 @@ storiesOf('Components/Blocks', module)
   }), {
     notes: {markdown: test_markdown}
   })
+  .add('Search Bar', () => ({
+    components: { SearchBar },
+    props: {
+      width: {
+        type: String,
+        default: text('width', '520px')
+      },
+      height: {
+        type: String,
+        default: text('height', '43px')
+      },
+      placeholder: {
+        type: String,
+        default: text('placeholder', 'Search...')
+      }
+    },
+    template: `
+    <search-bar
+      :width="width"
+      :height="height"
+      :placeholder="placeholder"
+    >
+    </search-bar>
+    `
+  }), {
+
+  })
+  .add('Event Item', () => ({
+    components: { EventItem },
+    props: {
+      heading: {
+        type: String,
+        default: text('heading','50th Fiestas Patrias')
+      },
+      sub_heading: {
+        type: String,
+        default: text('sub_heading', 'independencia comienza')
+      }
+    },
+    template: `
+    <event-item
+      :heading="heading"
+      :sub_heading="sub_heading"
+    >
+    </event-item>
+    `
+  }), {
+
+  })
+  .add('Section Navigation', () => ({
+    components: { SectionNavigation, SliderButtons, SimpleDot },
+    props: {
+      width: {
+        type: String,
+        default: text('width', '520px')
+      },
+      height: {
+        type: String,
+        default: text('height', '27px')
+      },
+      headline_item_url: {
+        type: String,
+        default: text('headline_item_url', '#')
+      },
+      item1: {
+        type: Object,
+        default: () => object('item1', {item_text: "World", item_url: "#", item_id: '1'})
+      },
+      item2: {
+        type: Object,
+        default: () => object('item2', {item_text: "Sports", item_url: "#", item_id: '2'})
+      },
+      item3: {
+        type: Object,
+        default: () => object('item3', {item_text: "Money", item_url: "#", item_id: '3'})
+      },
+      item4: {
+        type: Object,
+        default: () => object('item4', {item_text: "Movie", item_url: "#", item_id: '4'})
+      }
+    },
+    template: `
+    <div>
+      <section-navigation
+        :width="width"
+        :height="height"
+        :headline_item_url="headline_item_url"
+        :items="[item1, item2, item3, item4]"
+      ></section-navigation>
+      <section-navigation
+        :width="width"
+        :height="height"
+        :headline_item_url="headline_item_url"
+        :items="[item1, item2, item3, item4]"
+      >
+        <slider-buttons slot="slider-buttons"></slider-buttons>
+        <simple-dot slot="indicators"></simple-dot>
+        <simple-dot slot="indicators"></simple-dot>
+        <simple-dot slot="indicators"></simple-dot>
+      </section-navigation>
+    </div>
+    
+    `
+  }), {
+
+  })
 
 storiesOf('Components/Sections', module)
   .addDecorator(withKnobs)
+  .add('Header Section',() => ({
+    components: { HeaderSection },
+    template: `
+    <header-section></header-section>
+    `
+  }), {
+
+  })
+  .add('Headline News Section',() => ({
+    components: { HeadlineNewsSection },
+    template: `
+    <headline-news-section></headline-news-section>
+    `
+  }), {
+
+  })
   
 
 storiesOf('Components/Templates', module)

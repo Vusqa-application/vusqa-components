@@ -5,6 +5,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         prependData: `
+          @import "@/assets/scss/global_style.scss";
           @import "@/assets/scss/design-tokens/typography/font-face.scss";
           @import "@/assets/scss/design-tokens/typography/typography-0+.scss";
           @import "@/assets/scss/design-tokens/typography/typography-600+.scss";

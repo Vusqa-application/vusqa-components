@@ -1,12 +1,12 @@
 <template>
   <div class="headline-image"
     :style="{
-      'width': block_width,
-      'height': block_height,
+      'width': width,
+      'height': height,
       'background': `url(${image_src})`,
       'backgroundRepeat': 'no-repeat',
       'backgroundSize': 'cover',
-      'borderRadius': block_border_radius
+      'borderRadius': border_radius
     }"
   >
     <div class="button">
@@ -20,15 +20,15 @@
 <script>
 export default {
   props: {
-    block_width: {
+    width: {
       type: String,
       default: '520px'
     },
-    block_height: {
+    height: {
       type: String,
       default: '140px'
     },
-    block_border_radius: {
+    border_radius: {
       type: String,
       default: '4px'
     },

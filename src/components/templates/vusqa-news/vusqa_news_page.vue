@@ -2,7 +2,7 @@
   <div class="page-wrapper">
 
     <!-- 안에 뭐가 있으면 grid area 를 무시하고 일단 렌더링 해버리니 주의하십시오. -->
-    
+
     <header>
       <slot name="header"></slot>
     </header>
@@ -100,9 +100,7 @@ export default {
     "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside"
     "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside";
   }
-  
 
-  
 }
 
 // -------------------- ITEMS CONTROL

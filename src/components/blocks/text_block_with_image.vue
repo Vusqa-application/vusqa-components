@@ -1,6 +1,6 @@
 <template>
   <div class="text-block-with-image"
-    :style="{'width': block_width }"
+    :style="{'width': width }"
   >
     <div 
       class="image"
@@ -33,7 +33,7 @@
 <script>
 export default {
   props: {
-    block_width: {
+    width: {
       type: String,
       default: '160px'
     },

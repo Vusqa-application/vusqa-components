@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="indicator-box" 
+    :class="{'indicator-box': true, 'primary': is_primary, 'secondary': !is_primary}"
     :style="{'width': width, 'height': height}"
   >
     <span 
@@ -21,6 +21,10 @@ export default {
     height: {
       type: String,
       default: '20px'
+    },
+    is_primary: {
+      type: Boolean,
+      default: true
     }
   }
 }
@@ -28,7 +32,6 @@ export default {
 
 <style lang="scss">
 .indicator-box {
-  background: $VusqaBrandPrimary;
   opacity: 0.8;
   border-radius: 4px;
   display: flex;
@@ -43,5 +46,13 @@ export default {
     font-size: 10px;
     line-height: 100%;
   }
+
+}
+.primary {
+  background-color: $VusqaBrandPrimary ;
+}
+
+.secondary {
+  background-color: $LightGrey;
 }
 </style>
