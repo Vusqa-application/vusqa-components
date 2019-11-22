@@ -88,7 +88,7 @@ export default {
 
   .bottom-right-indicator {
     position: absolute;
-    bottom: 8px;
+    bottom: 4px;
     right: 4px;
   }
 

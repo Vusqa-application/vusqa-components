@@ -11,6 +11,8 @@ module.exports = {
           @import "@/assets/scss/design-tokens/typography/typography-900+.scss";
           @import "@/assets/scss/design-tokens/typography/typography-1200+.scss";
           @import "@/assets/scss/design-tokens/utilities/colors.scss";
+          @import "@/assets/scss/design-tokens/utilities/grids.scss";
+
         `
       }
     }

@@ -18,7 +18,7 @@ import TextBlockWithImage from '@/components/blocks/text_block_with_image.vue';
 
 
 // -------------- SECTIONS
-import HeadlineSection from '@/components/sections/headline_section.vue';
+import HeadlineSection from '@/components/sections/content/headline_news_section.vue';
 
 
 // -------------- TEMPLATES

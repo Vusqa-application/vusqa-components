@@ -1,0 +1,46 @@
+// 그리드는 scss mixins로 구현됩니다. 어디서든 사용할 수 있게 전역으로 등록되어 있습니다.
+
+@mixin normal-grid {
+
+  @media screen and (max-width: 320px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 5px;
+  }
+
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 7px;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 12px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 15px;
+  }
+
+  
+}
