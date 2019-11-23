@@ -35,7 +35,7 @@ export default {
     height: 20px;
     border-radius: 50%;
 
-    &:active {
+    &:hover {
 
       background-color: rgba($VusqaBrandPrimary, 0.2);
 

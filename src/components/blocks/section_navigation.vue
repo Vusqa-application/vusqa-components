@@ -7,10 +7,11 @@
   >
     <div class="navigations">
       <h1 class="headline font--base">
-        <a href="#" @click.prevent="getItemData(headline_item_url)">
+        <a href="#">
           Headline
         </a>
       </h1>
+      <!-- indicator에 getItemData가 동작해야 함 -->
       <div class="indicators">
         <slot name="indicators"></slot>
       </div>
@@ -98,10 +99,14 @@ export default {
         text-decoration: none;
         color: $LightGrey;
         opacity: 0.8;
+        &:focus {
+          color: $PrimaryActionColor;
+        }
       }
       :not(:last-child) {
         margin-right: 16px;
       }
+      
     }
   }
 

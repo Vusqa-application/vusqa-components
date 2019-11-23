@@ -36,13 +36,17 @@ export default {
   position: relative;
 
   .search-input {
-    background: #FFFFFF;
+    background: $Light;
     border: 2px solid $VusqaBrandPrimary;
     border-radius: 30px;
     padding: 8px 16px 8px 24px;
+    &:focus {
+      outline: none;
+    }
   }
 
   .search-icon {
+    cursor: pointer;
     position: absolute;
     top: 14px;
     right: 16px;

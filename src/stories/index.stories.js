@@ -13,6 +13,8 @@ import IndicatorBox from '@/components/atoms/indicator_box.vue';
 import SliderButtons from '@/components/atoms/slider_buttons.vue';
 import SimpleDot from '@/components/atoms/simple_dot.vue';
 import Divider from '@/components/atoms/divider.vue';
+import NavigationItemBox from '@/components/atoms/navigation_item_box.vue';
+
 
 
 
@@ -24,6 +26,7 @@ import SearchBar from '@/components/blocks/search_bar.vue';
 import EventItem from '@/components/blocks/event_item.vue';
 import SectionNavigation from '@/components/blocks/section_navigation.vue';
 import RankList from '@/components/blocks/rank_list.vue';
+import TextBlockList from '@/components/blocks/text_block_list.vue';
 
 
 
@@ -68,7 +71,22 @@ storiesOf('Components/Atoms', module)
   }), {
 
   })
+  .add('Divider', () => ({
+    components: { Divider },
+    template: 
+    `<divider></dividier>`
+  }), {
 
+  })
+  .add('Navigation Item Box', () => ({
+    components: { NavigationItemBox },
+    template: 
+    `<navigation-item-box></navigation-item-box>`
+  }), {
+
+  })
+
+  
 
 storiesOf('Components/Blocks', module)
   .addDecorator(withKnobs)
@@ -297,6 +315,49 @@ storiesOf('Components/Blocks', module)
       </section-navigation>
     </div>
     
+    `
+  }), {
+
+  })
+  .add('Rank List', () => ({
+    components: { RankList, NavigationItemBox },
+    props: {
+      rank_list_name: {
+        type: String,
+        default: text('rank_list_name', 'Trending Now')
+      },
+      items: {
+        type: Array,
+        default: () => [
+          {text: 'Kelsea Ballerini', views: 2000, current_state: 'increase'},
+          {text: 'Bankruptcy Information', views: 1900, current_state: 'decrease'},
+          {text: 'Scarlett Johansson', views: 1800, current_state: 'unchanged'},
+          {text: 'Hayley Orrantia', views: 1700, current_state: 'increase'},
+          {text: 'Tauck River Cruises', views: 1600, current_state: 'decrease'},
+          {text: 'Blake Shelton tour 2020', views: 1500, current_state: 'increase'},
+          {text: 'Kate Gosselin', views: 1400, current_state: 'increase'},
+          {text: 'Elizabeth Banks', views: 1300, current_state: 'unchanged'},
+          {text: 'Hayley Orrantia', views: 1200, current_state: 'decrease'},
+          {text: 'Heidi Klum', views: 1100, current_state: 'increase'}
+        ]
+      }
+    },
+    template: `
+    <rank-list
+      :rank_list_name="rank_list_name"
+      :items="items"
+    >
+      <navigation-item-box slot="indicators">1 ~ 10</navigation-item-box>
+      <navigation-item-box slot="indicators">10 ~ 20</navigation-item-box>
+    </rank-list>
+    `
+  }), {
+
+  })
+  .add('Text Block List', () => ({
+    components: { TextBlockList },
+    template: `
+    <text-block-list></text-block-list>
     `
   }), {
 

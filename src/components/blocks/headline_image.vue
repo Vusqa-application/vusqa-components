@@ -62,7 +62,7 @@ export default {
   .text {
     margin: 0;
     padding: 0px 16px 8px 16px;
-    color: white;
+    color: $Light;
   }
 }
 </style>

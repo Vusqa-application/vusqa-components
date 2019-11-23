@@ -39,7 +39,7 @@ export default {
   align-items: center;
 
   .indicator {
-    color: white;
+    color: $Light;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
