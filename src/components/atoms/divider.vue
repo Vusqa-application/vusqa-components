@@ -8,7 +8,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .divider {
   opacity: 0.2;
   border: 1px solid $LightGrey;

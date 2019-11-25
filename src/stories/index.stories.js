@@ -18,7 +18,6 @@ import NavigationItemBox from '@/components/atoms/navigation_item_box.vue';
 
 
 
-
 // -------------- BLOCKS
 import HeadlineImage from '@/components/blocks/headline_image.vue';
 import TextBlockWithImage from '@/components/blocks/text_block_with_image.vue';

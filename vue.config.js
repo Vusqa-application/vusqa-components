@@ -1,5 +1,3 @@
-// 버전 업그레이드 때문에 data가 prependData로 바꼈구나... 
-
 module.exports = {
   css: {
     loaderOptions: {
@@ -13,7 +11,6 @@ module.exports = {
           @import "@/assets/scss/design-tokens/typography/typography-1200+.scss";
           @import "@/assets/scss/design-tokens/utilities/colors.scss";
           @import "@/assets/scss/design-tokens/utilities/grids.scss";
-
         `
       }
     }

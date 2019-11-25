@@ -4,27 +4,27 @@
     <!-- 안에 뭐가 있으면 grid area 를 무시하고 일단 렌더링 해버리니 주의하십시오. -->
 
     <header>
-      <slot name="header"></slot>
+      <slot name="header">header</slot>
     </header>
 
     <section class="ad-section1">
-      <slot name="ad-section1"></slot>
+      <slot name="ad-section1">section</slot>
     </section>
 
     <section class="top-section">
-      <slot name="top-section"></slot>
+      <slot name="top-section">section</slot>
     </section>
 
     <section class="middle-section">
-      <slot name="middle-section"></slot>
+      <slot name="middle-section">section</slot>
     </section>
 
     <section class="ad-section2">
-      <slot name="ad-section2"></slot>
+      <slot name="ad-section2">section</slot>
     </section>
 
     <section class="bottom-section">
-      <slot name="bottom-section"></slot>
+      <slot name="bottom-section">section</slot>
     </section>
 
     <aside>
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 // -------------------- GRID LAYOUT CONTROL
 

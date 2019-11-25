@@ -51,7 +51,7 @@ export default {
     },
     image_src: {
       type: String,
-      default: ''
+      default: 'https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'
     },
     text: {
       type: String,
@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .text-block-with-image {
   position: relative;

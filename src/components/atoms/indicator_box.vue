@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .indicator-box {
   opacity: 0.8;
   border-radius: 4px;
