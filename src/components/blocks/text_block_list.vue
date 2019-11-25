@@ -34,7 +34,7 @@ export default {
   flex-direction: column;
 
   :not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .text-block {

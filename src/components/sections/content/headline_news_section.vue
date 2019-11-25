@@ -14,6 +14,13 @@
         <play-button slot="button"></play-button>
       </headline-image>
       <text-block-list></text-block-list>
+      <div class="news-block-list">
+        <text-block-with-image
+          v-for="i in 3"
+          :key="i"
+        >
+        </text-block-with-image>
+      </div>
     </div>
     <div class="trending-keywords">
       <rank-list>
@@ -24,14 +31,8 @@
           10 ~ 20
         </navigation-item-box>
       </rank-list>
+      <text-block-with-image></text-block-with-image>
     </div>
-  </div>
-  <div class="news-block-list">
-    <text-block-with-image
-      v-for="i in 4"
-      :key="i"
-    >
-    </text-block-with-image>
   </div>
   <divider></divider>
 </div>
@@ -68,23 +69,47 @@ export default {
   flex-direction: column;
   
   .trending-info {
-
     display: flex;
     flex-direction: row;
-
+    margin-bottom: 28px;
+    
     .trending-news {
       display: flex;
       flex-direction: column;
+      padding-right: 10px;
+      margin-bottom: 20px;
+
+      @include border-right;
+      .section-navigation {
+        margin-bottom: 16px;
+      }
+
+      .headline-image {
+        margin-bottom: 20px;
+      }
+
+      .text-block-list {
+        margin-bottom: 20px;
+      }
+
+      .news-block-list {
+        display: flex;
+        :not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
     }
 
     .trending-keywords {
+      padding-left: 10px;
+      
+      .rank-list {
+        margin-bottom: 20px;
+      }
 
     }
 
-  }
-
-  .news-block-list {
-    display: flex;
   }
 
 }
