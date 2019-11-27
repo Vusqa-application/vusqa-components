@@ -13,7 +13,6 @@ export default {
     clickEvent: {
       type: Function,
       default: () => {
-        alert('#')
       }
     }
   },

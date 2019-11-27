@@ -4,7 +4,7 @@
       type="text" 
       class="search-input"
       :placeholder="placeholder"
-      :style="{'width': width, 'height': height}"  
+      :style="{'width': width, 'height': height, 'borderRadius': border_radius}"  
     >
     <img src="@/assets/svg/icon-search.svg" class="search-icon" />
   </div>
@@ -20,6 +20,10 @@ export default {
     height: {
       type: String,
       default: '43px'
+    },
+    border_radius: {
+      type: String,
+      default: '4px'
     },
     placeholder: {
       type: String,
@@ -38,7 +42,6 @@ export default {
   .search-input {
     background: $Light;
     border: 2px solid $VusqaBrandPrimary;
-    border-radius: 30px;
     padding: 8px 16px 8px 24px;
     &:focus {
       outline: none;

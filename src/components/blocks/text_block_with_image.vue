@@ -26,7 +26,7 @@
         {{text}}
       </h1>
     </div>
-
+    <slot name="video-desc-block"></slot>
   </div>
 </template>
 
@@ -60,6 +60,10 @@ export default {
     text_align: {
       type: String,
       default: ''
+    },
+    sub_text: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -77,6 +81,11 @@ export default {
   }
 
   .text {
+    padding: 4px 4px 0px 4px;
+  }
+
+  .video-desc-block {
+    margin-top: 12px;
     padding: 0px 4px 0px 4px;
   }
 

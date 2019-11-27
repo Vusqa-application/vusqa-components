@@ -5,6 +5,11 @@
   >
     <span 
       class="indicator"
+      :style="{
+        'fontSize': font_size,
+        'fontWeight': font_weight,
+        'lineHeight': line_height
+      }"
     >
       <slot></slot>
     </span>
@@ -12,6 +17,8 @@
 </template>
 
 <script>
+// 폰트를 더 자세히 제어할 수 있도록 해야겠다.
+
 export default {
   props: {
     width: {
@@ -25,6 +32,18 @@ export default {
     is_primary: {
       type: Boolean,
       default: true
+    },
+    font_size: {
+      type: String,
+      default: '10px'
+    },
+    font_weight: {
+      type: String,
+      default: '800'
+    },
+    line_height: {
+      type: String,
+      default: '100%'
     }
   }
 }
@@ -42,9 +61,6 @@ export default {
     color: $Light;
     font-family: 'Lato';
     font-style: normal;
-    font-weight: 800;
-    font-size: 10px;
-    line-height: 100%;
   }
 
 }

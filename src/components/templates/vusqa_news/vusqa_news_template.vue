@@ -4,27 +4,27 @@
     <!-- 안에 뭐가 있으면 grid area 를 무시하고 일단 렌더링 해버리니 주의하십시오. -->
 
     <header>
-      <slot name="header">header</slot>
+      <slot name="header"></slot>
     </header>
 
     <section class="ad-section1">
-      <slot name="ad-section1">section</slot>
+      <slot name="ad-section1"></slot>
     </section>
 
     <section class="top-section">
-      <slot name="top-section">section</slot>
+      <slot name="top-section"></slot>
     </section>
 
-    <section class="middle-section">
-      <slot name="middle-section">section</slot>
+    <section class="middle-section"></section>
+      <slot name="middle-section"></slot>
     </section>
 
     <section class="ad-section2">
-      <slot name="ad-section2">section</slot>
+      <slot name="ad-section2"></slot>
     </section>
 
     <section class="bottom-section">
-      <slot name="bottom-section">section</slot>
+      <slot name="bottom-section"></slot>
     </section>
 
     <aside>
@@ -74,31 +74,31 @@ export default {
   @media screen and (min-width: 600px) {
     grid-template-areas: 
     "header header header header header header header header header header header header"
-    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside"
-    "top-section top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside"
-    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside"
-    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside"
-    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside";
+    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
+    "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
+    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
+    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
+    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
   }
 
   @media screen and (min-width: 900px) {
     grid-template-areas: 
     "header header header header header header header header header header header header"
-    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside"
-    "top-section top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside"
-    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside"
-    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside"
-    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside";
+    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
+    "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
+    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
+    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
+    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
   }
 
   @media screen and (min-width: 1366px) {
     grid-template-areas: 
     "header header header header header header header header header header header header"
-    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside"
-    "top-section top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside"
-    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside"
-    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside"
-    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside";
+    "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
+    "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
+    "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
+    "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
+    "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
   }
 
 }

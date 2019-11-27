@@ -31,7 +31,11 @@
           10 ~ 20
         </navigation-item-box>
       </rank-list>
-      <text-block-with-image></text-block-with-image>
+      <text-block-with-image>
+        <indicator-box slot="bottom-right-indicator"
+          :width="'28px'"
+        >AD</indicator-box>
+      </text-block-with-image>
     </div>
   </div>
   <divider></divider>

@@ -8,7 +8,7 @@
     <div class="navigations">
       <h1 class="headline font--base">
         <a href="#">
-          Headline
+          {{headline_text}}
         </a>
       </h1>
       <!-- indicator에 getItemData가 동작해야 함 -->
@@ -45,6 +45,10 @@ export default {
     height: {
       type: String,
       default: '27px'
+    },
+    headline_text: {
+      type: String,
+      default: 'Headline'
     },
     headline_item_url: {
       type: String,

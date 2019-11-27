@@ -14,6 +14,8 @@ import SliderButtons from '@/components/atoms/slider_buttons.vue';
 import SimpleDot from '@/components/atoms/simple_dot.vue';
 import Divider from '@/components/atoms/divider.vue';
 import NavigationItemBox from '@/components/atoms/navigation_item_box.vue';
+import BrandLogo from '@/components/atoms/brand_logo.vue';
+import VideoDescBlock from '@/components/atoms/video_desc_block.vue';
 
 
 
@@ -26,17 +28,33 @@ import EventItem from '@/components/blocks/event_item.vue';
 import SectionNavigation from '@/components/blocks/section_navigation.vue';
 import RankList from '@/components/blocks/rank_list.vue';
 import TextBlockList from '@/components/blocks/text_block_list.vue';
+import AdBlock from '@/components/blocks/ad_block.vue';
+
 
 
 
 
 // -------------- SECTIONS
-import HeadlineNewsSection from '@/components/sections/content/headline_news_section.vue';
+
+// Layout
 import HeaderSection from '@/components/sections/layout/header_section.vue';
+
+// Content
+import HeadlineNewsSection from '@/components/sections/content/headline_news_section.vue';
+import PopularNewsSection from '@/components/sections/content/popular_news_section.vue';
+import VideoSection from '@/components/sections/content/video_section.vue';
+
+
 
 
 // -------------- TEMPLATES
-import VusqaNewsPage from '@/components/templates/vusqa-news/vusqa_news_page.vue';
+import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
+
+
+
+// -------------- PAGES
+import FrontPage from '@/components/pages/front_page.vue';
+
 
 
 
@@ -51,8 +69,35 @@ storiesOf('Components/Atoms', module)
   })
   .add('Indicator Box', () => ({
     components: { IndicatorBox },
-    template: 
-    `<indicator-box>1</indicator-box>`
+    props: {
+      props: {
+        width: {
+          type: String,
+          default: text('width','20px')
+        },
+        height: {
+          type: String,
+          default: text('height','20px')
+        },
+        is_primary: {
+          type: Boolean,
+          default: boolean('is_primaryt',true)
+        },
+        font_size: {
+          type: String,
+          default: text('font_size','10px')
+        }
+      }
+    },
+    template: `
+    <indicator-box
+      :width="width"
+      :height="height"
+      :is_primary="is_primary"
+      :font_size="font_size"
+    >
+      1
+    </indicator-box>`
   }), {
 
   })
@@ -84,6 +129,40 @@ storiesOf('Components/Atoms', module)
   }), {
 
   })
+  .add('Brand Logo', () => ({
+    components: { BrandLogo },
+    template: 
+    `<brand-logo></brand-logo>`
+  }), {
+
+  })
+  .add('Video Desc Block', () => ({
+    components: { VideoDescBlock },
+    props: {
+      author: {
+        type: String,
+        default: text('author','Felip Crespo')
+      },
+      views: {
+        type: String,
+        default: text('views','10k')
+      },
+      time: {
+        type: String,
+        default: text('time','21 hours ago')
+      }
+    },
+    template: `
+    <video-desc-block
+      :author="author"
+      :views="views"
+      :time="time"
+    >
+    </video-desc-block>`
+  }), {
+
+  })
+  
 
   
 
@@ -135,7 +214,7 @@ storiesOf('Components/Blocks', module)
     notes: {markdown: test_markdown}
   })
   .add('TextBlock With Image', () => ({
-    components: { TextBlockWithImage, IndicatorBox },
+    components: { TextBlockWithImage, IndicatorBox, VideoDescBlock },
     props: {
       width: {
         type: String,
@@ -204,6 +283,31 @@ storiesOf('Components/Blocks', module)
         20:13
       </indicator-box>
     </text-block-with-image>
+    <text-block-with-image 
+      :width="width"
+      :image_width="image_width"
+      :image_height="image_height"
+      :image_border_radius="image_border_radius"
+      :image_src="image_src"
+      :text="text"
+      :text_align="text_align"
+    >
+      <indicator-box slot="top-left-indicator" 
+        :is_primary="is_primary"
+      >
+        1
+      </indicator-box>
+      <indicator-box slot="bottom-right-indicator" 
+        :width="'29px'" 
+        :is_primary="is_primary"
+      >
+        20:13
+      </indicator-box>
+      <video-desc-block
+        slot="video-desc-block"
+      >
+      </video-desc-block>
+    </text-block-with-image>
     </div>
     `,
     methods: {
@@ -223,16 +327,22 @@ storiesOf('Components/Blocks', module)
         type: String,
         default: text('height', '43px')
       },
+      border_radius: {
+        type: String,
+        default: '4px'
+      },
       placeholder: {
         type: String,
         default: text('placeholder', 'Search...')
-      }
+      },
+      
     },
     template: `
     <search-bar
       :width="width"
       :height="height"
       :placeholder="placeholder"
+      :border_radius="border_radius"
     >
     </search-bar>
     `
@@ -272,6 +382,10 @@ storiesOf('Components/Blocks', module)
         type: String,
         default: text('height', '27px')
       },
+      headline_text: {
+        type: String,
+        default: text('headline_text', 'Headline')
+      },
       headline_item_url: {
         type: String,
         default: text('headline_item_url', '#')
@@ -298,12 +412,14 @@ storiesOf('Components/Blocks', module)
       <section-navigation
         :width="width"
         :height="height"
+        :headline_text="headline_text"
         :headline_item_url="headline_item_url"
         :items="[item1, item2, item3, item4]"
       ></section-navigation>
       <section-navigation
         :width="width"
         :height="height"
+        :headline_text="headline_text"
         :headline_item_url="headline_item_url"
         :items="[item1, item2, item3, item4]"
       >
@@ -361,6 +477,31 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
+  .add('Ad Block', () => ({
+    components: { AdBlock },
+    width: {
+      type: String,
+      default: text('340px')
+    },
+    height: {
+      type: String,
+      default: text('120px')
+    },
+    image_src: {
+      type: String,
+      default: text('https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
+    },
+    template: `
+    <ad-block
+      :width="width"
+      :height="height"
+      :image_src="image_src"
+    >
+    </ad-block>
+    `
+  }), {
+
+  })
 
 storiesOf('Components/Sections', module)
   .addDecorator(withKnobs)
@@ -380,19 +521,49 @@ storiesOf('Components/Sections', module)
   }), {
 
   })
+  .add('PopularNewsSection',() => ({
+    components: { PopularNewsSection },
+    template: `
+    <popular-news-section></popular-news-section>
+    `
+  }), {
+
+  })
+  .add('Video Section',() => ({
+    components: { VideoSection },
+    template: `
+    <video-section></video-section>
+    `
+  }), {
+
+  })
   
 
 storiesOf('Components/Templates', module)
   .addDecorator(withKnobs)
-  .add('Vusqa News Page', () => ({
+  .add('Vusqa News Template', () => ({
     components: {
-      VusqaNewsPage
+      VusqaNewsTemplate
     },
     template: 
     `
-    <vusqa-news-page></vusqa-news-page>
+    <vusqa-news-template></vusqa-news-template>
     `
   }), {
 
   })
 
+
+storiesOf('Components/Pages', module)
+  .addDecorator(withKnobs)
+  .add('Front Page', () => ({
+    components: {
+      FrontPage
+    },
+    template: 
+    `
+    <front-page></front-page>
+    `
+  }), {
+
+  })
