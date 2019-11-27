@@ -16,6 +16,8 @@ import Divider from '@/components/atoms/divider.vue';
 import NavigationItemBox from '@/components/atoms/navigation_item_box.vue';
 import BrandLogo from '@/components/atoms/brand_logo.vue';
 import VideoDescBlock from '@/components/atoms/video_desc_block.vue';
+import OpinionButton from '@/components/atoms/opinion_button.vue';
+
 
 
 
@@ -30,6 +32,8 @@ import RankList from '@/components/blocks/rank_list.vue';
 import TextBlockList from '@/components/blocks/text_block_list.vue';
 import AdBlock from '@/components/blocks/ad_block.vue';
 import LoginCard from '@/components/blocks/login_card.vue';
+import NewsPostHeader from '@/components/blocks/news_post_header.vue';
+import NewsPostContent from '@/components/blocks/news_post_content.vue';
 
 
 
@@ -44,6 +48,9 @@ import HeaderSection from '@/components/sections/layout/header_section.vue';
 import HeadlineNewsSection from '@/components/sections/content/headline_news_section.vue';
 import PopularNewsSection from '@/components/sections/content/popular_news_section.vue';
 import VideoSection from '@/components/sections/content/video_section.vue';
+import NewsPostSection from '@/components/sections/content/news_post_section.vue';
+
+
 
 
 
@@ -161,6 +168,13 @@ storiesOf('Components/Atoms', module)
       :time="time"
     >
     </video-desc-block>`
+  }), {
+
+  })
+  .add('Opinion Button', () => ({
+    components: { OpinionButton },
+    template: 
+    `<opinion-button></opinion-button>`
   }), {
 
   })
@@ -481,17 +495,19 @@ storiesOf('Components/Blocks', module)
   })
   .add('Ad Block', () => ({
     components: { AdBlock },
-    width: {
-      type: String,
-      default: text('340px')
-    },
-    height: {
-      type: String,
-      default: text('120px')
-    },
-    image_src: {
-      type: String,
-      default: text('https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
+    props: {
+      width: {
+        type: String,
+        default: text('width','340px')
+      },
+      height: {
+        type: String,
+        default: text('height','120px')
+      },
+      image_src: {
+        type: String,
+        default: text('image_src','https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
+      },
     },
     template: `
     <ad-block
@@ -514,7 +530,32 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
+  .add('News Post Header', () => ({
+    components: { NewsPostHeader, OpinionButton },
+    template: `
+    <div>
+      <news-post-header
+      >
+      </news-post-header>
+      <news-post-header
+      >
+      <opinion-button slot="post-opinion"></opinion-button>  
+      <opinion-button slot="post-opinion"></opinion-button>
+      </news-post-header>
+    </div>
+    `
+  }), {
 
+  })
+  .add('News Post Content', () => ({
+    components: { NewsPostContent },
+    template: `
+    <news-post-content></news-post-content>
+    `
+  }), {
+
+  })
+  
 storiesOf('Components/Sections', module)
   .addDecorator(withKnobs)
   .add('Header Section',() => ({
@@ -549,8 +590,16 @@ storiesOf('Components/Sections', module)
   }), {
 
   })
-  
+  .add('News Post Section',() => ({
+    components: { NewsPostSection },
+    template: `
+    <news-post-section></news-post-section>
+    `
+  }), {
 
+  })
+  
+  
 storiesOf('Components/Templates', module)
   .addDecorator(withKnobs)
   .add('Vusqa News Template', () => ({
