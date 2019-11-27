@@ -114,35 +114,43 @@ export default {
 
 header {
   grid-area: header;
+  background-color: lightblue;
 }
 
 main {
   grid-area: main;
+  background-color: lightblue;
 }
 
 aside {
   grid-area: aside;
+  background-color: lightblue;
   padding-left: 8px;
 }
 
 .ad-section1 {
   grid-area: ad-section1;
+  background-color: lightblue;
 }
 
 .top-section {
   grid-area: top-section;
+  background-color: lightblue;
 }
 
 .middle-section {
   grid-area: middle-section;
+  background-color: lightblue;
 }
 
 .ad-section2 {
   grid-area: ad-section2;
+  background-color: lightblue;
 }
 
 .bottom-section {
   grid-area: bottom-section;
+  background-color: lightblue;
 }
 
 

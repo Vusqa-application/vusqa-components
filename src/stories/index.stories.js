@@ -29,6 +29,7 @@ import SectionNavigation from '@/components/blocks/section_navigation.vue';
 import RankList from '@/components/blocks/rank_list.vue';
 import TextBlockList from '@/components/blocks/text_block_list.vue';
 import AdBlock from '@/components/blocks/ad_block.vue';
+import LoginCard from '@/components/blocks/login_card.vue';
 
 
 
@@ -49,6 +50,7 @@ import VideoSection from '@/components/sections/content/video_section.vue';
 
 // -------------- TEMPLATES
 import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
+import VusqaNewsTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_template_grid.vue';
 
 
 
@@ -502,6 +504,16 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
+  .add('Login Card', () => ({
+    components: { LoginCard },
+    template: `
+    <login-card
+    >
+    </login-card>
+    `
+  }), {
+
+  })
 
 storiesOf('Components/Sections', module)
   .addDecorator(withKnobs)
@@ -543,11 +555,11 @@ storiesOf('Components/Templates', module)
   .addDecorator(withKnobs)
   .add('Vusqa News Template', () => ({
     components: {
-      VusqaNewsTemplate
+      VusqaNewsTemplateGrid
     },
     template: 
     `
-    <vusqa-news-template></vusqa-news-template>
+    <vusqa-news-template-grid></vusqa-news-template-grid>
     `
   }), {
 

@@ -1,27 +1,62 @@
 <template>
 <div class="front-page">
-  
+  <vusqa-news-template>
+    <header-section slot="header"></header-section>
+    <div class="ads-row"
+      slot="ad-section1"
+    >
+      <ad-block
+        v-for="i in 1"
+        :key="i"
+        :width="'100%'"
+        :height="'108px'"
+      >
+      </ad-block>
+    </div>
+    <headline-news-section slot="top-section"></headline-news-section>
+    <divider slot="top-section"></divider>
+    <popular-news-section slot="middle-section"></popular-news-section>
+    <div class="ads-row"
+      slot="ad-section2"
+    >
+      <ad-block
+        v-for="i in 2"
+        :key="i"
+      >
+      </ad-block>
+    </div>
+    <divider slot="middle-section"></divider>
+    <video-section slot="bottom-section"></video-section>
+    <login-card slot="top-aside"></login-card>
+    <div class="ads-column" slot="bottom-aside">
+      <ad-block
+        v-for="i in 3"
+        :key="i"
+        :height="'300px'"
+      >
+      </ad-block>
+    </div>
+  </vusqa-news-template>
 </div>
+
 </template>
 
 <script>
-// TEMPLATE
+// ----------- TEMPLATE
 import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
 
-// SECTION
+// ----------- SECTION
 const layout_section_path = component_name => import(`@/components/sections/layout/${component_name}.vue`);
 const content_section_path = component_name => import(`@/components/sections/content/${component_name}.vue`);
-
-// Layout
-import HeaderSection from '@/components/sections/layout/header_section.vue';
-
-// Content
-import HeadlineNewsSection from '@/components/sections/content/headline_news_section.vue';
-import PopularNewsSection from '@/components/sections/content/popular_news_section.vue';
-import VideoSection from '@/components/sections/content/video_section.vue';
-
+const atom_path = component_name => import(`@/components/atoms/${component_name}.vue`);
+const block_path = component_name => import(`@/components/blocks/${component_name}.vue`);
 
 export default {
+  data() {
+    return {
+      
+    }
+  },
   components: {
     // TEMPLATE
     VusqaNewsTemplate,
@@ -33,21 +68,50 @@ export default {
     HeadlineNewsSection: () => content_section_path('headline_news_section'),
     PopularNewsSection: () => content_section_path('popular_news_section'),
     VideoSection: () => content_section_path('video_section'),
+
+    // EXTRA BLOCKS
+    AdBlock: () => block_path('ad_block'),
+    LoginCard: () => block_path('login_card'),
+
+
+    // EXTRA ATOMS
+    Divider: () => atom_path('divider')
   }
 }
 </script>
 
 <style lang="scss">
 
+.front-page {
+  max-width: 1072px;
+  margin: auto;
 
+  .header-section {
+    margin-top: 36px;
+  }
 
-
+  .headline-news-section {
+    margin-top: 16px;
+  }
 
   .ads-row {
+    padding-right: 8px;
     display: flex;
-    margin-bottom: 16px;
     :not(:last-child) {
       margin-right: 20px;
     }
   }
+
+  .ads-column {
+    margin-top: 16px;
+    :not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+}
+
+
+
+
 </style>

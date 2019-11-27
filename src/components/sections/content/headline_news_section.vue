@@ -38,7 +38,6 @@
       </text-block-with-image>
     </div>
   </div>
-  <divider></divider>
 </div>
 </template>
 
@@ -50,7 +49,6 @@ export default {
   components: {
     // ATOMS
     PlayButton: () => atom_path('play_button'),
-    Divider: () => atom_path('divider'),
     IndicatorBox: () => atom_path('indicator_box'),
     SliderButtons: () => atom_path('slider_buttons'),
     SimpleDot: () => atom_path('simple_dot'),
