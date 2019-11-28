@@ -17,6 +17,8 @@ import NavigationItemBox from '@/components/atoms/navigation_item_box.vue';
 import BrandLogo from '@/components/atoms/brand_logo.vue';
 import VideoDescBlock from '@/components/atoms/video_desc_block.vue';
 import OpinionButton from '@/components/atoms/opinion_button.vue';
+import IconButton from '@/components/atoms/icon_button.vue';
+import ViewMoreButton from '@/components/atoms/view_more_button.vue';
 
 
 
@@ -34,6 +36,9 @@ import AdBlock from '@/components/blocks/ad_block.vue';
 import LoginCard from '@/components/blocks/login_card.vue';
 import NewsPostHeader from '@/components/blocks/news_post_header.vue';
 import NewsPostContent from '@/components/blocks/news_post_content.vue';
+import CommentHeader from '@/components/blocks/comment_header.vue';
+import CommentBlock from '@/components/blocks/comment_block.vue';
+
 
 
 
@@ -49,15 +54,17 @@ import HeadlineNewsSection from '@/components/sections/content/headline_news_sec
 import PopularNewsSection from '@/components/sections/content/popular_news_section.vue';
 import VideoSection from '@/components/sections/content/video_section.vue';
 import NewsPostSection from '@/components/sections/content/news_post_section.vue';
+import CommentSection from '@/components/sections/content/comment_section.vue';
 
 
 
 
 
 
-// -------------- TEMPLATES
-import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
+
+// -------------- TEMPLATES(GRID)
 import VusqaNewsTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_template_grid.vue';
+import VusqaNewsPostTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_post_template_grid.vue';
 
 
 
@@ -175,6 +182,20 @@ storiesOf('Components/Atoms', module)
     components: { OpinionButton },
     template: 
     `<opinion-button></opinion-button>`
+  }), {
+
+  })
+  .add('Icon Button', () => ({
+    components: { IconButton },
+    template: 
+    `<icon-button></icon-button>`
+  }), {
+
+  })
+  .add('View More Button', () => ({
+    components: { ViewMoreButton },
+    template: 
+    `<view-more-button></view-more-button>`
   }), {
 
   })
@@ -555,6 +576,24 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
+  .add('Comment Header', () => ({
+    components: { CommentHeader },
+    template: `
+    <comment-header></comment-header>
+    `
+  }), {
+
+  })
+  .add('Comment Block', () => ({
+    components: { CommentBlock },
+    template: `
+    <comment-block></comment-block>
+    `
+  }), {
+
+  })
+  
+  
   
 storiesOf('Components/Sections', module)
   .addDecorator(withKnobs)
@@ -598,6 +637,19 @@ storiesOf('Components/Sections', module)
   }), {
 
   })
+  .add('Comment Section',() => ({
+    components: { CommentSection },
+    template: `
+    <div>
+      <comment-section></comment-section>
+      <comment-section
+        :is_nested="true"
+      ></comment-section>
+    </div>
+    `
+  }), {
+
+  })
   
   
 storiesOf('Components/Templates', module)
@@ -613,8 +665,19 @@ storiesOf('Components/Templates', module)
   }), {
 
   })
+  .add('Vusqa News Post Template Grid', () => ({
+    components: {
+      VusqaNewsPostTemplateGrid
+    },
+    template: 
+    `
+    <vusqa-news-post-template-grid></vusqa-news-post-template-grid>
+    `
+  }), {
 
-
+  })
+  
+  
 storiesOf('Components/Pages', module)
   .addDecorator(withKnobs)
   .add('Front Page', () => ({

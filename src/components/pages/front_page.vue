@@ -1,7 +1,8 @@
 <template>
 <div class="front-page">
-  <vusqa-news-template>
+  <component :is="reading_mode ? 'vusqa-news-template' : 'vusqa-news-post-template'">
     <header-section slot="header"></header-section>
+    
     <div class="ads-row"
       slot="ad-section1"
     >
@@ -13,7 +14,11 @@
       >
       </ad-block>
     </div>
-    <headline-news-section slot="top-section"></headline-news-section>
+
+    <!-- 단순히 ?로만 컨트롤 하는건 뭔가 정리되지 않은 느낌인데... -->
+    <headline-news-section 
+      :slot="reading_mode? 'top-section' : 'news-item-section'"
+    ></headline-news-section>
     <divider slot="top-section"></divider>
     <popular-news-section slot="middle-section"></popular-news-section>
     <div class="ads-row"
@@ -36,7 +41,15 @@
       >
       </ad-block>
     </div>
-  </vusqa-news-template>
+
+    <!-- Post Reading Mode -->
+    <div class="post-section" slot="news-post-section">
+      <news-post-section></news-post-section>
+      <comment-section></comment-section>
+    </div>
+
+
+  </component>
 </div>
 
 </template>
@@ -44,6 +57,8 @@
 <script>
 // ----------- TEMPLATE
 import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
+import VusqaNewsPostTemplate from '@/components/templates/vusqa_news/vusqa_news_post_template.vue';
+
 
 // ----------- SECTION
 const layout_section_path = component_name => import(`@/components/sections/layout/${component_name}.vue`);
@@ -54,12 +69,13 @@ const block_path = component_name => import(`@/components/blocks/${component_nam
 export default {
   data() {
     return {
-      
+      reading_mode: false
     }
   },
   components: {
     // TEMPLATE
     VusqaNewsTemplate,
+    VusqaNewsPostTemplate,
 
     // Layout Sections
     HeaderSection: () => layout_section_path('header_section'),
@@ -68,6 +84,8 @@ export default {
     HeadlineNewsSection: () => content_section_path('headline_news_section'),
     PopularNewsSection: () => content_section_path('popular_news_section'),
     VideoSection: () => content_section_path('video_section'),
+    NewsPostSection: () => content_section_path('news_post_section'),
+    CommentSection: () => content_section_path('comment_section'),
 
     // EXTRA BLOCKS
     AdBlock: () => block_path('ad_block'),
@@ -107,6 +125,10 @@ export default {
     :not(:last-child) {
       margin-bottom: 16px;
     }
+  }
+
+  .post-reading-mode {
+
   }
 
 }

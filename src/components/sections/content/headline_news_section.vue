@@ -23,6 +23,7 @@
       </div>
     </div>
     <div class="trending-keywords">
+      <slot name="right-column"></slot>
       <rank-list>
         <navigation-item-box slot="indicators">
           1 ~ 10
@@ -38,6 +39,7 @@
       </text-block-with-image>
     </div>
   </div>
+  <slot name="bottom-row"></slot>
 </div>
 </template>
 
@@ -81,7 +83,7 @@ export default {
       padding-right: 10px;
       margin-bottom: 20px;
 
-      @include border-right;
+      
       .section-navigation {
         margin-bottom: 16px;
       }
@@ -105,6 +107,7 @@ export default {
 
     .trending-keywords {
       padding-left: 10px;
+      @include border-left;
       
       .rank-list {
         margin-bottom: 20px;
