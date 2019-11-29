@@ -65,7 +65,7 @@ export default {
 .comment-header {
   display: flex;
   flex-direction: column;
-
+  margin: auto;
   .comment-section-header {
     display: flex;
     justify-content: space-between;

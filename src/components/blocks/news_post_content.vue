@@ -73,7 +73,11 @@ export default {
 
 <style lang="scss" scoped>
 .news-post-content {
-  padding: 30px 16px 24px 16px;
+  padding: 30px 0px 24px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
   .post-image {
     border-radius: 4px;
     margin-bottom: 24px;

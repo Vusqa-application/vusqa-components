@@ -43,18 +43,15 @@ export default {
 
 header {
   grid-area: header;
-  background-color: lightblue;
 }
 
 .news-item-section {
   grid-area: news-item;
-  background-color: lightblue;
 
 }
 
 .news-post-section {
   grid-area: news-post;
-  background-color: lightblue;
 
 }
   

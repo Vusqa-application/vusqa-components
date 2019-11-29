@@ -11,7 +11,9 @@
   <div class="rank-navigation">
     <slot name="indicators"></slot>
   </div>
-  <ul class="rank-list-blocks">
+  <ul class="rank-list-blocks"
+    :style="{ 'columnCount': column_count }"
+  >
     <li 
       class="rank-list-block"
       v-for="(item, index) in sorted_items"
@@ -46,6 +48,10 @@ export default {
     rank_list_name: {
       type: String,
       default: 'Trending Now'
+    },
+    column_count: {
+      type: Number,
+      default: 1
     },
     items: {
       type: Array,
@@ -87,7 +93,6 @@ export default {
     }
   }
   .rank-list-blocks {
-
     > :not(:last-child) {
       margin-bottom: 16px;
     }

@@ -18,8 +18,11 @@
     <!-- 단순히 ?로만 컨트롤 하는건 뭔가 정리되지 않은 느낌인데... -->
     <headline-news-section 
       :slot="reading_mode? 'top-section' : 'news-item-section'"
-    ></headline-news-section>
+    >
+      <trending-keywords-section :slot="reading_mode ? 'right-column' : 'bottom-row'"></trending-keywords-section>
+    </headline-news-section>
     <divider slot="top-section"></divider>
+    
     <popular-news-section slot="middle-section"></popular-news-section>
     <div class="ads-row"
       slot="ad-section2"
@@ -47,8 +50,6 @@
       <news-post-section></news-post-section>
       <comment-section></comment-section>
     </div>
-
-
   </component>
 </div>
 
@@ -86,6 +87,7 @@ export default {
     VideoSection: () => content_section_path('video_section'),
     NewsPostSection: () => content_section_path('news_post_section'),
     CommentSection: () => content_section_path('comment_section'),
+    TrendingKeywordsSection: () => content_section_path('trending_keywords_section'),
 
     // EXTRA BLOCKS
     AdBlock: () => block_path('ad_block'),
@@ -127,8 +129,9 @@ export default {
     }
   }
 
-  .post-reading-mode {
-
+  .post-section {
+    @include border-left;
+    padding: 0px 8px 0px 8px;
   }
 
 }

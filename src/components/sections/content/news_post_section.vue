@@ -38,7 +38,7 @@ export default {
 
 .news-post-section {
 
-  padding: 16px;
+  padding: 16px 8px 16px 8px;
 
   .icons {
     display: flex;

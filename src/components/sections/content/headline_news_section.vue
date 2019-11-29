@@ -22,22 +22,7 @@
         </text-block-with-image>
       </div>
     </div>
-    <div class="trending-keywords">
-      <slot name="right-column"></slot>
-      <rank-list>
-        <navigation-item-box slot="indicators">
-          1 ~ 10
-        </navigation-item-box>
-        <navigation-item-box slot="indicators">
-          10 ~ 20
-        </navigation-item-box>
-      </rank-list>
-      <text-block-with-image>
-        <indicator-box slot="bottom-right-indicator"
-          :width="'28px'"
-        >AD</indicator-box>
-      </text-block-with-image>
-    </div>
+    <slot name="right-column"></slot>
   </div>
   <slot name="bottom-row"></slot>
 </div>
@@ -54,12 +39,10 @@ export default {
     IndicatorBox: () => atom_path('indicator_box'),
     SliderButtons: () => atom_path('slider_buttons'),
     SimpleDot: () => atom_path('simple_dot'),
-    NavigationItemBox: () => atom_path('navigation_item_box'),
 
     // BLOCKS
     HeadlineImage: () => block_path('headline_image'),
     SectionNavigation: () => block_path('section_navigation'),
-    RankList: () => block_path('rank_list'),
     TextBlockWithImage: () => block_path('text_block_with_image'),
     TextBlockList: () => block_path('text_block_list')
   }
@@ -101,16 +84,6 @@ export default {
         :not(:last-child) {
           margin-right: 20px;
         }
-      }
-
-    }
-
-    .trending-keywords {
-      padding-left: 10px;
-      @include border-left;
-      
-      .rank-list {
-        margin-bottom: 20px;
       }
 
     }
