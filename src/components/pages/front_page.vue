@@ -1,5 +1,6 @@
 <template>
 <div class="front-page">
+  <button @click="testMethod">test Click</button>
   <component :is="reading_mode ? 'vusqa-news-template' : 'vusqa-news-post-template'">
     <header-section slot="header"></header-section>
     
@@ -56,23 +57,20 @@
 </template>
 
 <script>
-// ----------- TEMPLATE
+// ----------- TEMPLATE PATH
 import VusqaNewsTemplate from '@/components/templates/vusqa_news/vusqa_news_template.vue';
 import VusqaNewsPostTemplate from '@/components/templates/vusqa_news/vusqa_news_post_template.vue';
 
 
-// ----------- SECTION
+// ----------- SECTION PATH
 const layout_section_path = component_name => import(`@/components/sections/layout/${component_name}.vue`);
 const content_section_path = component_name => import(`@/components/sections/content/${component_name}.vue`);
 const atom_path = component_name => import(`@/components/atoms/${component_name}.vue`);
 const block_path = component_name => import(`@/components/blocks/${component_name}.vue`);
 
+import { mapState } from 'vuex';
+
 export default {
-  data() {
-    return {
-      reading_mode: false
-    }
-  },
   components: {
     // TEMPLATE
     VusqaNewsTemplate,
@@ -96,6 +94,19 @@ export default {
 
     // EXTRA ATOMS
     Divider: () => atom_path('divider')
+  },
+  data() {
+    return {
+      reading_mode: false,
+    }
+  },
+  computed: {
+    
+  },
+  methods: {
+    testMethod () {
+      console.log(this.$store.state);
+    }
   }
 }
 </script>
