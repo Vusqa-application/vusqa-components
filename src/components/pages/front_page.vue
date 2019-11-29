@@ -3,7 +3,6 @@
   <button @click="testMethod">test Click</button>
   <component :is="reading_mode ? 'vusqa-news-template' : 'vusqa-news-post-template'">
     <header-section slot="header"></header-section>
-    
     <div class="ads-row"
       slot="ad-section1"
     >
@@ -15,8 +14,6 @@
       >
       </ad-block>
     </div>
-
-    <!-- 단순히 ?로만 컨트롤 하는건 뭔가 정리되지 않은 느낌인데... -->
     <headline-news-section 
       :slot="reading_mode? 'top-section' : 'news-item-section'"
     >
