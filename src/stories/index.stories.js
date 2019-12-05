@@ -38,6 +38,13 @@ import NewsPostHeader from '@/components/blocks/news_post_header.vue';
 import NewsPostContent from '@/components/blocks/news_post_content.vue';
 import CommentHeader from '@/components/blocks/comment_header.vue';
 import CommentBlock from '@/components/blocks/comment_block.vue';
+import HeadlineCard from '@/components/blocks/headline_card.vue';
+import PageTopNavigation from '@/components/blocks/page_top_navigation.vue';
+import AdsGrid from '@/components/blocks/ads_grid.vue';
+import TextBlcokListWithCategory from '@/components/blocks/text_block_list_with_category.vue';
+import TrendingKeywordsDropdown from '@/components/blocks/trending_keywords_dropdown.vue';
+
+
 
 
 
@@ -70,6 +77,7 @@ import VusqaNewsPostTemplateGrid from '@/components/templates/vusqa_news/vusqa_n
 
 // -------------- PAGES
 import FrontPage from '@/components/pages/front_page.vue';
+import HeadlinePage from '@/components/pages/headline_page.vue';
 
 
 
@@ -592,6 +600,54 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
+  .add('Headline Card', () => ({
+    components: { HeadlineCard },
+    template: `
+    <headline-card></headline-card>
+    `
+  }), {
+
+  })
+  .add('Page Top Navigation', () => ({
+    components: { PageTopNavigation, TrendingKeywordsDropdown },
+    template: `
+    <div>
+      <page-top-navigation></page-top-navigation>
+      <page-top-navigation>
+        <trending-keywords-dropdown
+          slot="right-item"
+        >
+        </trending-keywords-dropdown>
+      </page-top-navigation>
+    </div>
+    `
+  }), {
+
+  })
+  .add('Ads Grid', () => ({
+    components: { AdsGrid },
+    template: `
+    <ads-grid></ads-grid>
+    `
+  }), {
+
+  })
+  .add('Text Blcok List With Category', () => ({
+    components: { TextBlcokListWithCategory },
+    template: `
+    <text-block-list-with-category></text-block-list-with-category>
+    `
+  }), {
+
+  })
+  .add('Trending Keywords Dropdown', () => ({
+    components: { TrendingKeywordsDropdown },
+    template: `
+    <trending-keywords-dropdown></trending-keywords-dropdown>
+    `
+  }), {
+
+  })
   
   
   
@@ -691,3 +747,15 @@ storiesOf('Components/Pages', module)
   }), {
 
   })
+  .add('Headline Page', () => ({
+    components: {
+      HeadlinePage
+    },
+    template: 
+    `
+    <front-page></front-page>
+    `
+  }), {
+
+  })
+  

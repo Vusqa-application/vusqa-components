@@ -65,13 +65,14 @@ export default {
 .comment-header {
   display: flex;
   flex-direction: column;
-  margin: auto;
+
+
   .comment-section-header {
+    padding: 0px 8px 0px 8px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 0px 8px 0px 8px;
-
+    
     .comment-section-heading {
 
     }
@@ -81,6 +82,7 @@ export default {
   }
 
   .comment-input {
+    margin: 0px 4px 0px 4px;
     margin-top: 24px;
     margin-bottom: 16px;
     background-color: $Light;
