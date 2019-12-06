@@ -41,8 +41,11 @@ import CommentBlock from '@/components/blocks/comment_block.vue';
 import HeadlineCard from '@/components/blocks/headline_card.vue';
 import PageTopNavigation from '@/components/blocks/page_top_navigation.vue';
 import AdsGrid from '@/components/blocks/ads_grid.vue';
-import TextBlcokListWithCategory from '@/components/blocks/text_block_list_with_category.vue';
+import TextBlockListWithCategory from '@/components/blocks/text_block_list_with_category.vue';
 import TrendingKeywordsDropdown from '@/components/blocks/trending_keywords_dropdown.vue';
+import ListCard from '@/components/blocks/list_card.vue';
+import SmallNavigation from '@/components/blocks/small_navigation.vue';
+
 
 
 
@@ -632,8 +635,8 @@ storiesOf('Components/Blocks', module)
   }), {
 
   })
-  .add('Text Blcok List With Category', () => ({
-    components: { TextBlcokListWithCategory },
+  .add('Text Block List With Category', () => ({
+    components: { TextBlockListWithCategory },
     template: `
     <text-block-list-with-category></text-block-list-with-category>
     `
@@ -644,6 +647,27 @@ storiesOf('Components/Blocks', module)
     components: { TrendingKeywordsDropdown },
     template: `
     <trending-keywords-dropdown></trending-keywords-dropdown>
+    `
+  }), {
+
+  })
+  .add('List Card', () => ({
+    components: { ListCard, SmallNavigation },
+    template: `
+    <div>
+      <list-card></list-card>
+      <list-card>
+        <small-navigation slot="navigation"></small-navigation>
+      </list-card>
+    </div> 
+    `
+  }), {
+
+  })
+  .add('Small Navigation', () => ({
+    components: { SmallNavigation },
+    template: `
+    <small-navigation></small-navigation>
     `
   }), {
 

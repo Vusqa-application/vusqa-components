@@ -95,11 +95,7 @@ export default {
     .right-item {
       padding: 16px 0px 16px 0px;
     }
-  }
-
-  
-
-  
+  } 
 }
 
 </style>
