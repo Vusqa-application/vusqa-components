@@ -45,6 +45,8 @@ import TextBlockListWithCategory from '@/components/blocks/text_block_list_with_
 import TrendingKeywordsDropdown from '@/components/blocks/trending_keywords_dropdown.vue';
 import ListCard from '@/components/blocks/list_card.vue';
 import SmallNavigation from '@/components/blocks/small_navigation.vue';
+import WeatherBlock from '@/components/blocks/weather_block.vue';
+
 
 
 
@@ -668,6 +670,14 @@ storiesOf('Components/Blocks', module)
     components: { SmallNavigation },
     template: `
     <small-navigation></small-navigation>
+    `
+  }), {
+
+  })
+  .add('Weather Block', () => ({
+    components: { WeatherBlock },
+    template: `
+    <weather-block></weather-block>
     `
   }), {
 
