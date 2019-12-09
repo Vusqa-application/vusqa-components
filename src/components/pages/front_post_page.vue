@@ -1,8 +1,11 @@
 <template>
 <div class="front-page">
-  <component :is="reading_mode ? 'vusqa-news-post-template' : 'vusqa-news-template'">
+  <component :is="reading_mode ? 'vusqa-news-template' : 'vusqa-news-post-template'">
     <header-section slot="header">
-      <event-item slot="header-right-item"></event-item>
+      <div slot="header-right-item" class="header-item">
+        <app-square-icon></app-square-icon>
+        <basic-button>Sign In</basic-button>
+      </div>
     </header-section>
     <div class="ads-row"
       slot="ad-section1"
@@ -16,9 +19,8 @@
       </ad-block>
     </div>
     <headline-news-section 
-      :slot="reading_mode? 'news-item-section' : 'top-section'"
+      :slot="reading_mode? 'top-section' : 'news-item-section'"
     >
-      <trending-keywords-section :slot="reading_mode ? 'bottom-row' : 'right-column'"></trending-keywords-section>
     </headline-news-section>
     <divider slot="top-section"></divider>
     
@@ -88,10 +90,12 @@ export default {
     // EXTRA BLOCKS
     AdBlock: () => block_path('ad_block'),
     LoginCard: () => block_path('login_card'),
-    EventItem: () => block_path('event_item'),
+
 
     // EXTRA ATOMS
-    Divider: () => atom_path('divider')
+    Divider: () => atom_path('divider'),
+    BasicButton: () => import(process.env.ATOM + 'basic_button.vue'),
+    AppSquareIcon: () => import(process.env.ATOM + 'app_square_icon.vue'),
   },
   data() {
     return {
@@ -117,7 +121,16 @@ export default {
 
   .header-section {
     margin-top: 36px;
+    .header-item {
+      display: flex;
+      align-items: center;
+      
+      .app-square-icon {
+        margin-right: 16px;
+      }
+    }
   }
+
 
   .headline-news-section {
     margin-top: 16px;

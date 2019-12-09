@@ -65,7 +65,7 @@ export default {
 
   .ad-row {
     display: flex;
-    
+        
     .first-image {
       width: 221px;
       height: 222px;

@@ -1,8 +1,10 @@
 <template>
   <div class="header-section">
-    <brand-logo></brand-logo>
-    <search-bar></search-bar>
-    <event-item></event-item>
+    <div class="header-left">
+      <brand-logo></brand-logo>
+      <search-bar></search-bar>
+    </div>
+    <slot name="header-right-item"></slot>
   </div>
 </template>
 
@@ -17,7 +19,6 @@ export default {
 
     // BLOCK
     SearchBar: () => block_path('search_bar'),
-    EventItem: () => block_path('event_item')
   }
 }
 </script>
@@ -26,19 +27,23 @@ export default {
 
 .header-section {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    .brand-logo {
+      padding-top: 7px;
+      margin-right: 46px;
+    }
 
-  .brand-logo {
-    padding-top: 7px;
-    margin-right: 46px;
-  }
+    .search-bar {
+      margin-right: 175px;
+    }
 
-  .search-bar {
-    margin-right: 175px;
-  }
-
-  .event-item {
-    padding-top: 7px;
+    .event-item {
+      padding-top: 7px;
+    }
   }
 }
   

@@ -58,56 +58,6 @@ export default {
   "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
   "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
 
-  // @media screen and (max-width: 320px) {
-  //   grid-template-areas: 
-  //   "header header header header header header header header header header header header"
-  //   "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1"
-  //   "top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section"
-  //   "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section"
-  //   "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2"
-  //   "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section";
-  // }
-
-  // @media screen and (min-width: 320px) {
-  //   grid-template-areas: 
-  //   "header header header header header header header header header header header header"
-  //   "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1"
-  //   "top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section top-section"
-  //   "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section"
-  //   "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2"
-  //   "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section";
-  // }
-
-  // @media screen and (min-width: 600px) {
-  //   grid-template-areas: 
-  //   "header header header header header header header header header header header header"
-  //   "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
-  //   "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
-  //   "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
-  //   "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
-  //   "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
-  // }
-
-  // @media screen and (min-width: 900px) {
-  //   grid-template-areas: 
-  //   "header header header header header header header header header header header header"
-  //   "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
-  //   "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
-  //   "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
-  //   "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
-  //   "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
-  // }
-
-  // @media screen and (min-width: 1366px) {
-    // grid-template-areas: 
-    // "header header header header header header header header header header header header"
-    // "ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 ad-section1 aside aside aside aside"
-    // "top-section top-section top-section top-section top-section top-section top-section top-section aside aside aside aside"
-    // "middle-section middle-section middle-section middle-section middle-section middle-section middle-section middle-section aside aside aside aside"
-    // "ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 ad-section2 aside aside aside aside"
-    // "bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section bottom-section aside aside aside aside";
-  // }
-
 }
 
 // -------------------- ITEMS CONTROL

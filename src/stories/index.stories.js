@@ -19,6 +19,8 @@ import VideoDescBlock from '@/components/atoms/video_desc_block.vue';
 import OpinionButton from '@/components/atoms/opinion_button.vue';
 import IconButton from '@/components/atoms/icon_button.vue';
 import ViewMoreButton from '@/components/atoms/view_more_button.vue';
+import BasicButton from '@/components/atoms/basic_button.vue';
+import AppSquareIcon from '@/components/atoms/app_square_icon.vue';
 
 
 
@@ -77,11 +79,13 @@ import CommentSection from '@/components/sections/content/comment_section.vue';
 // -------------- TEMPLATES(GRID)
 import VusqaNewsTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_template_grid.vue';
 import VusqaNewsPostTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_post_template_grid.vue';
+import VusqaNewsHeadlineTemplateGrid from '@/components/templates/vusqa_news/vusqa_news_headline_template_grid.vue';
 
 
 
 // -------------- PAGES
 import FrontPage from '@/components/pages/front_page.vue';
+import FrontPostPage from '@/components/pages/front_post_page.vue';
 import HeadlinePage from '@/components/pages/headline_page.vue';
 
 
@@ -209,6 +213,20 @@ storiesOf('Components/Atoms', module)
     components: { ViewMoreButton },
     template: 
     `<view-more-button></view-more-button>`
+  }), {
+
+  })
+  .add('Basic Button', () => ({
+    components: { BasicButton },
+    template: 
+    `<basic-button></basic-button>`
+  }), {
+
+  })
+  .add('App Square Icon', () => ({
+    components: { AppSquareIcon },
+    template: 
+    `<app-square-icon></app-square-icon>`
   }), {
 
   })
@@ -766,6 +784,17 @@ storiesOf('Components/Templates', module)
   }), {
 
   })
+  .add('Vusqa News Headline Template Grid', () => ({
+    components: {
+      VusqaNewsHeadlineTemplateGrid
+    },
+    template: 
+    `
+    <vusqa-news-headline-template-grid></vusqa-news-headline-template-grid>
+    `
+  }), {
+
+  })
   
   
 storiesOf('Components/Pages', module)
@@ -781,13 +810,24 @@ storiesOf('Components/Pages', module)
   }), {
 
   })
+  .add('Front Post Page', () => ({
+    components: {
+      FrontPostPage
+    },
+    template: 
+    `
+    <front-post-page></front-post-page>
+    `
+  }), {
+
+  })
   .add('Headline Page', () => ({
     components: {
       HeadlinePage
     },
     template: 
     `
-    <front-page></front-page>
+    <headline-page></headline-page>
     `
   }), {
 
