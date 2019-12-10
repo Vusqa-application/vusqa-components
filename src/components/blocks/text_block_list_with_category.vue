@@ -7,8 +7,7 @@
 >
   <div class="list-header">
     <div class="header-icon">
-      <img src="@/assets/svg/world-category.svg" />
-      <slot name="header-icon"></slot>
+      <img v-if="category_icon" :src="require(`@/assets/svg/${category_icon}.svg`)" />
     </div>
     <h1 class="category-name">
       {{category_name}}
@@ -21,12 +20,10 @@
       :key="item.id"
     >
       <div class="item-leading">
-        <slot name="item-leading">
-          <span class="leading">1</span>
-        </slot>
+        <span v-if="item.leading_number" class="leading">{{item.leading_number}}</span>
       </div>
       <div class="item-info">
-        {{item.text}}
+        <span class="item-text">{{item.text}}</span>
         <div class="font--small item-meta">
           <span class="press">
             {{item.press}}
@@ -50,7 +47,7 @@ export default {
   props: {
     width: {
       type: String,
-      default: ''
+      default: '662px'
     },
     height: {
       type: String,
@@ -59,6 +56,10 @@ export default {
     category_name: {
       type: String,
       default: 'World'
+    },
+    category_icon: {
+      type: String,
+      default: ''
     },
     items: {
       type: Array,
@@ -84,7 +85,9 @@ export default {
     align-items: center;
 
     .header-icon {
-      margin-right: 12px;
+      img {
+        margin-right: 12px;
+      }
     }
 
     .category-name {
@@ -103,7 +106,7 @@ export default {
 
       .item-leading {
         .leading {
-          font-family: Lato;
+          font-family: 'Lato';
           font-style: normal;
           font-weight: 600;
           font-size: 40px;
@@ -113,13 +116,17 @@ export default {
         }
       }
 
+      .item-text {
+        margin-right: 16px;
+      }
+
       .item-meta {
         margin-top: 4px;
-        
+        display: inline-block;
         color: $LightGrey;
         
         .press {
-          margin-right: 16px;
+          margin-right: 12px;
         }
 
         .time {

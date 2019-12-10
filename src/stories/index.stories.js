@@ -69,6 +69,7 @@ import PopularNewsSection from '@/components/sections/content/popular_news_secti
 import VideoSection from '@/components/sections/content/video_section.vue';
 import NewsPostSection from '@/components/sections/content/news_post_section.vue';
 import CommentSection from '@/components/sections/content/comment_section.vue';
+import NewsCategorySection from '@/components/sections/content/news_category_section.vue';
 
 
 
@@ -754,6 +755,14 @@ storiesOf('Components/Sections', module)
         :is_nested="true"
       ></comment-section>
     </div>
+    `
+  }), {
+
+  })
+  .add('News Category Section',() => ({
+    components: { NewsCategorySection },
+    template: `
+      <news-category-section></news-category-section>
     `
   }), {
 
