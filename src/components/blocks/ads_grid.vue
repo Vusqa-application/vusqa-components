@@ -61,6 +61,7 @@ export default {
 .ads-grid {
   .heading {
     color: black;
+    margin-bottom: 8px;
   }
 
   .ad-row {
@@ -69,15 +70,19 @@ export default {
     .first-image {
       width: 221px;
       height: 222px;
-      margin: 4px;
+      margin-bottom: 8px;
+      margin-right: 8px;
       border-radius: 4px;
       
     }
+    
+    // 이거 고쳐야 하네
 
     .image {
       width: 107px;
       height: 107px;
-      margin: 4px;
+      margin-bottom: 8px;
+      margin-right: 8px;
       border-radius: 4px;
     }
 

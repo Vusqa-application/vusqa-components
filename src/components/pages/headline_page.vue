@@ -20,8 +20,26 @@
     >
     </news-category-section>
 
-    <ad-section2 slot="headline-right-side">
-    </ad-section2>
+    <div class="ad-section" slot="headline-right-side">
+      <list-card>
+
+      </list-card>
+      <ad-block
+        :width="'336px'"
+        :height="'300px'"
+        
+      >
+
+      </ad-block>
+      <list-card>
+        <small-navigation slot="navigation"></small-navigation>
+      </list-card>
+
+      <ads-grid>
+
+      </ads-grid>
+
+    </div>
 
   </vusqa-news-headline-template>
 </div>
@@ -44,10 +62,16 @@ export default {
     // EXTRA BLOCKS
     HeadlineCard: () => import(process.env.BLOCK + 'headline_card.vue'),
     PageTopNavigation: () => import(process.env.BLOCK + 'page_top_navigation.vue'),
+    SmallNavigation: () => import(process.env.BLOCK + 'small_navigation.vue'),
+    ListCard: () => import(process.env.BLOCK + 'list_card.vue'),
+    AdBlock: () => import(process.env.BLOCK + 'ad_block.vue'),
+    AdsGrid: () => import(process.env.BLOCK + 'ads_grid.vue'),
 
     // EXTRA ATOMS
     BasicButton: () => import(process.env.ATOM + 'basic_button.vue'),
     AppSquareIcon: () => import(process.env.ATOM + 'app_square_icon.vue'),
+
+    
 
   },
   data() {
@@ -120,6 +144,19 @@ export default {
 
     .headline-card {
       margin-bottom: 76px;
+    }
+
+    .ad-section {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      .list-card {
+        margin-bottom: 16px;
+      }
+
+      .ad-block {
+        margin-bottom: 16px;
+      }
     }
   }
 }

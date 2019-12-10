@@ -78,9 +78,6 @@ export default {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 12px;
-    padding-right: 8px;
-    padding-left: 8px;
-
 
     .heading {
       color: black;
@@ -102,8 +99,7 @@ export default {
   }
 
   .list {
-    padding-right: 8px;
-    padding-left: 8px;
+    list-style: none;
 
     .list-item {
       font-weight: bold;

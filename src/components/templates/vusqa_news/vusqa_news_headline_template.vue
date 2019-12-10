@@ -40,7 +40,7 @@ export default {
   grid-template-areas: 
   "header header header header header header header header header header header header"
   "headline-top headline-top headline-top headline-top headline-top headline-top headline-top headline-top headline-top headline-top headline-top headline-top"
-  "headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-right-side headline-right-side headline-right-side headline-right-side headline-right-side headline-right-side"
+  "headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-left-side headline-right-side headline-right-side headline-right-side headline-right-side"
 
 }
 
