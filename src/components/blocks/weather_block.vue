@@ -20,28 +20,16 @@
           {{weather_data.temp}} &#8451;
         </h2>
       </div>
-      <img :src="require(`@/assets/svg/weather/sunny.svg`)" class="weather-icon">
+      <img :src="require(`@/assets/svg/weather-icons/${weather_data.iconId}.png`)" class="weather-icon">
     </div>
     <div class="weekly-weather">
-      <div class="weekday">
-        <h1 class="day font--base-semibold">Today</h1>
-        <img :src="require(`@/assets/svg/weather/${weekly_weather_list[0].weather}.svg`)" class="day-weather-icon">
-      </div>
-      <div class="weekday">
-        <h1 class="day font--base-semibold">{{weekly_weather_list[1].day}}</h1>
-        <img :src="require(`@/assets/svg/weather/${weekly_weather_list[1].weather}.svg`)" class="day-weather-icon">
-      </div>
-      <div class="weekday">
-        <h1 class="day font--base-semibold">{{weekly_weather_list[2].day}}</h1>
-        <img :src="require(`@/assets/svg/weather/${weekly_weather_list[2].weather}.svg`)" class="day-weather-icon">
-      </div>
-      <div class="weekday">
-        <h1 class="day font--base-semibold">{{weekly_weather_list[3].day}}</h1>
-        <img :src="require(`@/assets/svg/weather/${weekly_weather_list[3].weather}.svg`)" class="day-weather-icon">
-      </div>
-      <div class="weekday">
-        <h1 class="day font--base-semibold">{{weekly_weather_list[4].day}}</h1>
-        <img :src="require(`@/assets/svg/weather/${weekly_weather_list[4].weather}.svg`)" class="day-weather-icon">
+      <div 
+        class="weekday"
+        v-for="forecast_item in weather_data.forecast_list"
+        :key="forecast_item.day"
+      >
+        <h1 class="day font--base-semibold">{{forecast_item.day}}</h1>
+        <img :src="require(`@/assets/svg/weather-icons/${forecast_item.iconId}.png`)" class="day-weather-icon">
       </div>
     </div>
   </div>
@@ -54,14 +42,29 @@ export default {
   data () {
     return {
       clicked: 0,
-      weather_data: {}
+      weather_data: {
+        temp: 0,
+        description: 'searching',
+        iconId: 'default',
+        city: 'searching',
+        country: 'searching',
+        forecast_list: [
+          { day: 'Today', iconId: 'default', temp: 32 },
+          { day: 'Sat', iconId: 'default', temp: 31 },
+          { day: 'Sun', iconId: 'default', temp: 30 },
+          { day: 'Mon', iconId: 'default', temp: 30 },
+          { day: 'Tue', iconId: 'default', temp: 32 },
+        ]
+      }
     }
   },
   mounted() {
+
+    // -------------------- 현재 기온 DISPLAY
     const KELVIN = 273;
     const api_key = '6e535f2ab4a4197c95d9ee154d8e907b';
 
-    const getWeather = (latitude, longitude) => {
+    const getCurrentWeather = (latitude, longitude) => {
       const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}`;
 
       fetch(api).then(res => {
@@ -70,17 +73,59 @@ export default {
         return data;
         
       }).then(data => {
-        this.weather_data = {
-          temp: Math.floor(data.main.temp - KELVIN),
-          description: data.weather[0].description,
-          iconId: data.weather[0].icon,
-          city: data.name,
-          country: data.sys.country
-        }
-      }).then(
-        result => console.log(this.weather_data)
-      );
+        
+        this.weather_data.temp = Math.floor(data.main.temp - KELVIN);
+        this.weather_data.description = data.weather[0].description;
+        this.weather_data.iconId = data.weather[0].icon;
+        this.weather_data.city = data.name;
+        this.weather_data.country = data.sys.country;
+        
+      });
     }
+
+
+    // ---------------------- 5일치 FORECASE
+
+    // api.openweathermap.org/data/2.5/forecast?lat=35&lon=139
+
+
+    const fiveDaysForecast = (latitude, longitude) => {
+      const KELVIN = 273;
+      const api = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${api_key}`;
+    
+      fetch(api).then(res => {
+
+        const data = res.json();
+        return data;
+      }).then(data => {
+
+        const d = new Date();
+        const today = d.getDate();
+
+        const week_list = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+        const result_list = [];
+        
+        for (let i=2; i < data.list.length; i += 8) {
+
+          let display_day = '';
+
+          if (i === 2) {
+            display_day = 'Today';
+          } else {
+            display_day = week_list[new Date(data.list[i].dt_txt.slice(0,10)).getDay()];
+          }
+
+          result_list.push({day: display_day, iconId: data.list[i].weather[0].icon, temp: Math.floor(data.list[i].main.temp - KELVIN), date: data.list[i].dt_txt });
+        }
+
+        this.weather_data.forecast_list = result_list;
+        
+      })
+    }
+    
+
+    // ---------------------- 실행
 
     const setPosition = (position) => {
       const latitude = position.coords.latitude;
@@ -88,13 +133,16 @@ export default {
 
       console.log('position! : ', latitude, longitude)
 
-      getWeather(latitude, longitude);
+      getCurrentWeather(latitude, longitude);
+      fiveDaysForecast(latitude, longitude)
     }
+
+    
 
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition( setPosition, err => console.log(err) );
     } else {
-      alert('no geolocation! Browser does not support it');
+      console.log('no geolocation! Browser does not support it');
     }
   },
   computed: {
@@ -113,16 +161,6 @@ export default {
     height: {
       type: String,
       default: ''
-    },
-    weekly_weather_list: {
-      type: Array,
-      default: () => [
-        { day: 'Fri', weather: 'sunny', temperature: 32 },
-        { day: 'Sat', weather: 'cloudy', temperature: 31 },
-        { day: 'Sun', weather: 'cloudy-rainy', temperature: 30 },
-        { day: 'Mon', weather: 'cloudy-rainy', temperature: 30 },
-        { day: 'Tue', weather: 'sunny', temperature: 32 },
-      ]
     }
   },
   components: {
@@ -195,6 +233,10 @@ export default {
 
       .weekday {
 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         .day {
           color: $LightGrey;
           font-weight: normal;
@@ -202,7 +244,8 @@ export default {
         }
 
         .day-weather-icon {
-
+          width: 40px;
+          height: 40px;
         }
 
       }
