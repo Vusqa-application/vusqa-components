@@ -62,7 +62,7 @@ export default {
     const api_key = '6e535f2ab4a4197c95d9ee154d8e907b';
 
     const getWeather = (latitude, longitude) => {
-      const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}`;
+      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}`;
 
       fetch(api).then(res => {
         // 아 이 안에 있는 동작도 비동기인가
