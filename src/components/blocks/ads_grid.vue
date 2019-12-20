@@ -76,7 +76,7 @@ export default {
       
     }
     
-    // 이거 고쳐야 하네
+    // 이거 고쳐야 하네요
 
     .image {
       width: 107px;
